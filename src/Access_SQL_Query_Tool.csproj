@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UserSecretsId>1cd7b34d-26af-442d-ac91-c1d630e1037c</UserSecretsId>
+    <StartupObject>Access_SQL_Query_Tool.Program</StartupObject>
+    <ApplicationIcon>Access_SQL_Query_Tool.ico</ApplicationIcon>
+    <BaseOutputPath>bin\</BaseOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Access_SQL_Query_Tool.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.OleDb" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
