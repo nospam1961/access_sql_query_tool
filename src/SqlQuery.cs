@@ -21,6 +21,15 @@ namespace Access_SQL_Query_Tool
             InitializeComponent();
             _configuration = configuration;
             LblDatabaseFilename.Text = _configuration["AppSettings:DatabasePath"];
+            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            if (version == null)
+            {
+                LblVersion.Text = "";
+            }
+            else
+            {
+                LblVersion.Text = $"v{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            }
         }
 
         private void CmdExecute_Click(object sender, EventArgs e)
@@ -60,7 +69,9 @@ namespace Access_SQL_Query_Tool
                 LblDatabaseFilename.Text = dbPath;
             }
 
-            var cnnString = $"Provider=Microsoft.ACE.OLEDB.16.0; Data Source=\"{dbPath}\";";
+            //Mode -> https://learn.microsoft.com/en-us/openspecs/sql_server_protocols/ms-oledbstr/fe6b6a03-77a2-4054-bfef-b2074ff4d4bf
+            // Mode = 'Share Deny None' (0x10 or 16) do not deny read write to other requests
+            var cnnString = $"Provider=Microsoft.ACE.OLEDB.16.0; Data Source=\"{dbPath}\"; Mode=Share Deny None;";
 
             string sql = GetSQL(RtbQuery);
             DataTable dt = new("Result");

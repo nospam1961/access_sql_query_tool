@@ -42,6 +42,7 @@ namespace Access_SQL_Query_Tool
             GrdOutput = new DataGridView();
             TabMessageOutput = new TabPage();
             RtbMessageOutput = new RichTextBox();
+            LblVersion = new Label();
             ((System.ComponentModel.ISupportInitialize)SplToolbarAndOther).BeginInit();
             SplToolbarAndOther.Panel1.SuspendLayout();
             SplToolbarAndOther.Panel2.SuspendLayout();
@@ -65,6 +66,7 @@ namespace Access_SQL_Query_Tool
             // 
             // SplToolbarAndOther.Panel1
             // 
+            SplToolbarAndOther.Panel1.Controls.Add(LblVersion);
             SplToolbarAndOther.Panel1.Controls.Add(CmdExecuteNonQuery);
             SplToolbarAndOther.Panel1.Controls.Add(LblDatabaseFilename);
             SplToolbarAndOther.Panel1.Controls.Add(CmdExecute);
@@ -188,6 +190,16 @@ namespace Access_SQL_Query_Tool
             RtbMessageOutput.TabIndex = 0;
             RtbMessageOutput.Text = "";
             // 
+            // LblVersion
+            // 
+            LblVersion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LblVersion.Location = new System.Drawing.Point(778, 14);
+            LblVersion.Name = "LblVersion";
+            LblVersion.Size = new System.Drawing.Size(218, 15);
+            LblVersion.TabIndex = 3;
+            LblVersion.Text = "Version";
+            LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // SqlQuery
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -229,5 +241,6 @@ namespace Access_SQL_Query_Tool
         private RichTextBox RtbMessageOutput;
         private Label LblDatabaseFilename;
         private Button CmdExecuteNonQuery;
+        private Label LblVersion;
     }
 }
